@@ -31,9 +31,8 @@ public class CampaignController {
     }
 
     @PostMapping("/{campaignId}/registration")
-    public ResponseEntity<Object> registrationCampaign( @PathVariable Long campaignId,
-                                                        @RequestBody CampaignDto campaignDto) {
-        return campaignFacade.registrationCampaign(campaignId, campaignDto);
+    public ResponseEntity<Object> registrationCampaign( @PathVariable Long campaignId) {
+        return campaignFacade.registrationCampaign(campaignId);
 
     }
 

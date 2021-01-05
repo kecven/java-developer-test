@@ -26,8 +26,7 @@ public class CampaignFacade {
         return ResponseEntity.ok().build();
     }
 
-    public ResponseEntity<Object> registrationCampaign(Long campaignId, CampaignDto campaignDto) {
-        campaignDto.setId(campaignId);
+    public ResponseEntity<Object> registrationCampaign(Long campaignId) {
 
         Optional<Campaign> campaignOptional = campaignService.findById(campaignId);
 

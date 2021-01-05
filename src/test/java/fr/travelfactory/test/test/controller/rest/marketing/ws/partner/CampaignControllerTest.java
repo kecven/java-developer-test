@@ -36,7 +36,7 @@ class CampaignControllerTest {
 
         this.mockMvc.perform(
                 post("/marketing/ws/partner/campaign/1")
-                        .contentType(MediaType.APPLICATION_JSON_UTF8)
+                        .contentType(MediaType.APPLICATION_JSON)
                         .content(utils.toJson(campaignDto)))
                 .andExpect(status().isOk())
                 .andExpect(content().string(containsString("")));
@@ -54,7 +54,7 @@ class CampaignControllerTest {
 
         this.mockMvc.perform(
                 post("/marketing/ws/partner/campaign/1")
-                        .contentType(MediaType.APPLICATION_JSON_UTF8)
+                        .contentType(MediaType.APPLICATION_JSON)
                         .content(utils.toJson(campaignDto)))
                 .andExpect(status().is(400))
                 .andExpect(content().string(containsString("Wrong format for field email")));
@@ -71,7 +71,7 @@ class CampaignControllerTest {
 
         this.mockMvc.perform(
                 post("/marketing/ws/partner/campaign/1")
-                        .contentType(MediaType.APPLICATION_JSON_UTF8)
+                        .contentType(MediaType.APPLICATION_JSON)
                         .content(utils.toJson(campaignDto)))
                 .andExpect(status().is(400))
                 .andExpect(content().string(containsString("Wrong format for field phone")));
@@ -90,16 +90,14 @@ class CampaignControllerTest {
 
         this.mockMvc.perform(
                 post("/marketing/ws/partner/campaign/2")
-                        .contentType(MediaType.APPLICATION_JSON_UTF8)
+                        .contentType(MediaType.APPLICATION_JSON)
                         .content(utils.toJson(campaignDto)))
                 .andExpect(status().isOk())
                 .andExpect(content().string(containsString("")));
 
 
         this.mockMvc.perform(
-                post("/marketing/ws/partner/campaign/3/registration")
-                        .contentType(MediaType.APPLICATION_JSON_UTF8)
-                        .content(utils.toJson(campaignDto)))
+                post("/marketing/ws/partner/campaign/3/registration"))
                 .andExpect(status().isOk())
                 .andExpect(content().string(containsString("")));
     }
@@ -117,16 +115,14 @@ class CampaignControllerTest {
 
         this.mockMvc.perform(
                 post("/marketing/ws/partner/campaign/2")
-                        .contentType(MediaType.APPLICATION_JSON_UTF8)
+                        .contentType(MediaType.APPLICATION_JSON)
                         .content(utils.toJson(campaignDto)))
                 .andExpect(status().isOk())
                 .andExpect(content().string(containsString("")));
 
 
         this.mockMvc.perform(
-                post("/marketing/ws/partner/campaign/2/registration")
-                        .contentType(MediaType.APPLICATION_JSON_UTF8)
-                        .content(utils.toJson(campaignDto)))
+                post("/marketing/ws/partner/campaign/2/registration"))
                 .andExpect(status().is(409))
                 .andExpect(content().string(containsString("ko")));
     }
