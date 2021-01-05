@@ -57,7 +57,7 @@ class CampaignControllerTest {
                         .contentType(MediaType.APPLICATION_JSON_UTF8)
                         .content(utils.toJson(campaignDto)))
                 .andExpect(status().is(400))
-                .andExpect(content().string(containsString("")));
+                .andExpect(content().string(containsString("Wrong format for field email")));
     }
 
     @Test
@@ -74,7 +74,7 @@ class CampaignControllerTest {
                         .contentType(MediaType.APPLICATION_JSON_UTF8)
                         .content(utils.toJson(campaignDto)))
                 .andExpect(status().is(400))
-                .andExpect(content().string(containsString("")));
+                .andExpect(content().string(containsString("Wrong format for field phone")));
     }
 
 
